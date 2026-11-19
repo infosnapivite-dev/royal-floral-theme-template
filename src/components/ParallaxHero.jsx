@@ -91,7 +91,7 @@ export default function ParallaxHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[670px] min-h-[670px] overflow-hidden bg-transparent select-none"
+      className="relative w-full h-[850px] min-h-[850px] overflow-hidden bg-transparent select-none"
     >
       {/* =========================================================================
           LAYER 1: Z-10 (Chateau & Midground Trees)
@@ -167,7 +167,7 @@ export default function ParallaxHero() {
       <div
         ref={coupleTitleRef}
         style={gpuLayerStyle}
-        className="absolute top-[69%] inset-x-0 w-full text-center px-4 z-35 pointer-events-none flex flex-col items-center justify-center will-animate"
+        className="absolute top-[70%] inset-x-0 w-full text-center px-4 z-35 pointer-events-none flex flex-col items-center justify-center will-animate"
       >
         <span className="font-royal text-[10px] tracking-[0.38em] text-[#801b26] uppercase font-semibold mb-1">
           The Wedding of
@@ -218,7 +218,7 @@ export default function ParallaxHero() {
       <div
         ref={uiLayerRef}
         style={gpuLayerStyle}
-        className="absolute inset-0 z-50 pointer-events-none flex flex-col justify-end items-center pb-3"
+        className="absolute inset-0 z-50 pointer-events-none flex flex-col justify-end items-center pb-5"
       >
         <div className="flex flex-col items-center gap-2.5">
           <span className="font-royal text-[10.5px] font-medium tracking-[0.34em] text-[#8e857b] uppercase select-none transition-colors duration-300">
