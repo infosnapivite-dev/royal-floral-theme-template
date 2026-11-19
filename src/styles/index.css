@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #f9f6f0;
+    color: #1a1519;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    width: 100%;
+    height: 100%;
+    background-color: #f9f6f0;
+  }
+
+  /* Typography shortcuts */
+  .font-royal {
+    font-family: 'Cinzel', serif;
+  }
+
+  .font-script {
+    font-family: 'Great Vibes', cursive;
+  }
+
+  .font-serif-display {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+/* GPU Hardware Acceleration Mandates from PRD */
+.gpu-accelerated,
+.will-animate {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+/* Minimal Luxury Royal Background Gradient */
+.royal-page-gradient {
+  background: linear-gradient(
+    180deg,
+    #fdfbf7 0%,
+    #fcf7f2 16%,
+    #fbf2ec 38%,
+    #fbf3ed 62%,
+    #faf0e8 82%,
+    #f7ece3 100%
+  );
+  background-attachment: local;
+}
+
+/* Utility to completely hide scrollbar while preserving smooth scrolling */
+.no-scrollbar {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}

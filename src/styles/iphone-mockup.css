@@ -1,0 +1,298 @@
+:root,
+.stage-light {
+  --desk-spotlight-1: rgba(197, 160, 89, 0.22);
+  --desk-spotlight-2: rgba(128, 27, 38, 0.08);
+  --desk-bg-1: #faf7f2;
+  --desk-bg-2: #f3ede2;
+  --desk-bg-3: #e8e0d0;
+  --desk-dot-color: rgba(197, 160, 89, 0.28);
+  --desk-aura-core: rgba(197, 160, 89, 0.35);
+  --desk-aura-mid: rgba(128, 27, 38, 0.14);
+  --desk-aura-outer: rgba(197, 160, 89, 0.08);
+}
+
+.stage-dark {
+  --desk-spotlight-1: rgba(197, 160, 89, 0.16);
+  --desk-spotlight-2: rgba(128, 27, 38, 0.14);
+  --desk-bg-1: #1a1519;
+  --desk-bg-2: #100b0f;
+  --desk-bg-3: #070406;
+  --desk-dot-color: rgba(197, 160, 89, 0.18);
+  --desk-aura-core: rgba(197, 160, 89, 0.3);
+  --desk-aura-mid: rgba(128, 27, 38, 0.2);
+  --desk-aura-outer: rgba(26, 54, 54, 0.15);
+}
+
+/* Outer Desktop Stage Container */
+.desktop-viewport-container {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-color: #f9f6f0;
+}
+
+@media (min-width: 601px) {
+  html, body, #root {
+    background-color: #f9f6f0 !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+  }
+
+  .desktop-viewport-container {
+    background:
+      radial-gradient(ellipse at 50% 40%, var(--desk-spotlight-1) 0%, transparent 65%),
+      radial-gradient(circle at 15% 25%, var(--desk-spotlight-2) 0%, transparent 45%),
+      radial-gradient(circle at 85% 75%, var(--desk-spotlight-2) 0%, transparent 45%),
+      radial-gradient(circle at 50% 35%, var(--desk-bg-1) 0%, var(--desk-bg-2) 50%, var(--desk-bg-3) 100%);
+    perspective: 1400px;
+    perspective-origin: center center;
+  }
+
+  /* Ambient Glow Aura Behind Phone */
+  .desktop-viewport-container::before {
+    content: '';
+    position: absolute;
+    width: 620px;
+    height: 860px;
+    border-radius: 50%;
+    background: radial-gradient(
+      ellipse at center,
+      var(--desk-aura-core) 0%,
+      var(--desk-aura-mid) 40%,
+      var(--desk-aura-outer) 65%,
+      transparent 80%
+    );
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(52px);
+    pointer-events: none;
+    z-index: 0;
+    animation: desktopAuraBreath 7s ease-in-out infinite alternate;
+  }
+
+  /* Starlight Lattice Dot Grid */
+  .desktop-viewport-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(var(--desk-dot-color) 1.2px, transparent 1.2px),
+      radial-gradient(var(--desk-dot-color) 1.2px, transparent 1.2px);
+    background-size: 36px 36px;
+    background-position: 0 0, 18px 18px;
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @keyframes desktopAuraBreath {
+    0% { opacity: 0.75; transform: translate(-50%, -50%) scale(0.94); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+  }
+
+  /* iPhone Chassis Dimensions (Precision Scaled: Fixed iPhone 15 Pro proportions 393px × 852px) */
+  .iphone-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 393px;
+    height: 852px;
+    max-width: calc(100vw - 32px);
+    max-height: calc(100dvh - 32px);
+    aspect-ratio: 393 / 852;
+    transform-origin: center center;
+    overflow: visible !important;
+    z-index: 10;
+  }
+
+  /* Brushed Titanium Hardware Buttons */
+  .btn-hardware {
+    position: absolute;
+    z-index: 25;
+    pointer-events: none;
+  }
+
+  .btn-action, .btn-vol-up, .btn-vol-down {
+    left: -4px;
+    width: 4px;
+    border-radius: 2.5px 0 0 2.5px;
+    background: linear-gradient(180deg, #9e9389 0%, #70675f 18%, #4a433d 50%, #70675f 82%, #9e9389 100%);
+    box-shadow: inset 0.8px 1px 1px rgba(255, 255, 255, 0.5), inset 0 -1px 1px rgba(0, 0, 0, 0.8), -2px 0 5px rgba(0, 0, 0, 0.35);
+    border-left: 0.5px solid rgba(255, 255, 255, 0.4);
+  }
+  .btn-action { top: 15.5%; height: 3.6%; }
+  .btn-vol-up { top: 22.5%; height: 6.6%; }
+  .btn-vol-down { top: 31.2%; height: 6.6%; }
+
+  .btn-power {
+    right: -4px;
+    top: 24.5%;
+    width: 4px;
+    height: 9.8%;
+    border-radius: 0 2.5px 2.5px 0;
+    background: linear-gradient(180deg, #9e9389 0%, #70675f 18%, #4a433d 50%, #70675f 82%, #9e9389 100%);
+    box-shadow: inset -0.8px 1px 1px rgba(255, 255, 255, 0.5), inset 0 -1px 1px rgba(0, 0, 0, 0.8), 2px 0 5px rgba(0, 0, 0, 0.35);
+    border-right: 0.5px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .btn-camera-control {
+    right: -3px;
+    top: 68.5%;
+    width: 3px;
+    height: 7.2%;
+    border-radius: 0 2px 2px 0;
+    background: linear-gradient(180deg, #786f68 0%, #524b45 30%, #302a26 70%, #786f68 100%);
+    box-shadow: inset -0.5px 0.5px 0.5px rgba(255, 255, 255, 0.4), inset 0 -0.5px 0.5px rgba(0, 0, 0, 0.8), 1px 0 4px rgba(0, 0, 0, 0.3);
+    border-right: 0.5px solid rgba(255, 255, 255, 0.25);
+  }
+
+  /* Main iPhone Frame Bezels */
+  .iphone-device-frame {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border-radius: 54px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow:
+      0 0 0 1px #a3998f,
+      0 0 0 3.5px #48413b,
+      0 0 0 5.5px #26211e,
+      0 32px 75px -14px rgba(120, 80, 40, 0.35),
+      0 12px 30px rgba(0, 0, 0, 0.22),
+      0 0 45px rgba(197, 160, 89, 0.25);
+    border: 3.5px solid #000;
+  }
+
+  /* Dynamic Island Notch */
+  .iphone-notch {
+    position: absolute;
+    top: 11px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 124px;
+    height: 35px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 999;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.8), inset 0 0 1px rgba(255, 255, 255, 0.2);
+  }
+
+  .notch-lens {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #182848, #050b18 70%);
+    box-shadow: inset 0 0 1.5px rgba(255, 255, 255, 0.4);
+    position: relative;
+  }
+  .notch-lens::after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+  }
+
+  .notch-sensor {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #0d0812;
+    box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Inner App Containers */
+.inner-app-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #f9f6f0;
+}
+
+.inner-app-scroll {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  background: linear-gradient(
+    180deg,
+    #fdfbf7 0%,
+    #fcf7f2 16%,
+    #fbf2ec 38%,
+    #fbf3ed 62%,
+    #faf0e8 82%,
+    #f7ece3 100%
+  );
+  background-attachment: local;
+}
+
+.inner-app-scroll::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS (Seamless Fullscreen on Actual Phones <= 600px)
+   ========================================================================== */
+@media (max-width: 600px) {
+  .desktop-viewport-container::before,
+  .desktop-viewport-container::after {
+    display: none;
+  }
+
+  .desktop-viewport-container {
+    background: linear-gradient(
+      180deg,
+      #fdfbf7 0%,
+      #fcf7f2 16%,
+      #fbf2ec 38%,
+      #fbf3ed 62%,
+      #faf0e8 82%,
+      #f7ece3 100%
+    ) !important;
+    padding: 0 !important;
+  }
+
+  .iphone-wrapper,
+  .iphone-device-frame {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    transform: none !important;
+  }
+
+  .btn-hardware,
+  .iphone-notch {
+    display: none !important;
+  }
+}
