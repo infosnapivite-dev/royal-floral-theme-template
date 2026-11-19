@@ -220,7 +220,7 @@ export default function VenueSection() {
 
         {/* Primary Serif Title */}
         <h2 className="text-2xl md:text-3xl font-royal tracking-wide text-[#1a1519] font-medium leading-tight">
-          Château de Versailles
+          Palace of Versailles
         </h2>
       </div>
 
@@ -239,7 +239,7 @@ export default function VenueSection() {
           <img
             ref={venueImgRef}
             src={venueImage}
-            alt="Château de Versailles luxury wedding venue with parterre gardens"
+            alt="Palace of Versailles luxury wedding venue with parterre gardens"
             className="w-full h-auto object-contain object-center will-animate drop-shadow-[0_12px_28px_rgba(0,0,0,0.06)]"
             style={{
               transformOrigin: '50% 60%',
@@ -294,7 +294,7 @@ export default function VenueSection() {
           Place d'Armes, 78000 Versailles
         </p>
         <p className="font-serif-display text-sm text-[#5c5049] italic mb-5">
-          Île-de-France, France
+          Versailles, France
         </p>
 
         {/* Subtle Decorative Golden Dividing Bar */}
@@ -315,7 +315,7 @@ export default function VenueSection() {
       >
         {/* Primary Get Directions CTA */}
         <a
-          href="https://maps.google.com/?q=Ch%C3%A2teau+de+Versailles,+Place+d'Armes,+78000+Versailles,+France"
+          href="https://maps.google.com/?q=Palace+of+Versailles,+Place+d'Armes,+78000+Versailles,+France"
           target="_blank"
           rel="noopener noreferrer"
           className="group relative w-full flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#801b26] via-[#982230] to-[#801b26] text-[#fdfaf5] shadow-lg shadow-[#801b26]/20 border border-[#c5a059]/40 hover:border-[#c5a059] hover:shadow-xl hover:shadow-[#801b26]/30 active:scale-[0.98] transition-all duration-300"

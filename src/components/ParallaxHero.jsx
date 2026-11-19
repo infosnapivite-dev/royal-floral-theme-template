@@ -118,7 +118,7 @@ export default function ParallaxHero() {
         <div className="absolute top-[39.5%] left-[calc(50%+6px)] -translate-x-1/2 -translate-y-1/2 w-[41%] max-w-[160px] flex items-center justify-center">
           <img
             src={chateauImg}
-            alt="Royal French Chateau"
+            alt="Royal Palace Estate"
             className="w-full h-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.06)]"
           />
         </div>

@@ -33,9 +33,9 @@ export default function EventsPage({ onNavigate, activeTab = 'events' }) {
       title: 'Welcome Dinner',
       time: 'Friday · 7:00 PM',
       location: 'The Rose Garden',
-      address: 'The Grand Pavilion & Rose Parterre, Château Gardens',
+      address: 'The Grand Pavilion & Rose Parterre, Palace Gardens',
       image: welcomeDinnerImg,
-      alt: 'Welcome dinner table illustration with roses and chateau backdrop',
+      alt: 'Welcome dinner table illustration with roses and palace backdrop',
       isTinted: false,
     },
     {
@@ -47,7 +47,7 @@ export default function EventsPage({ onNavigate, activeTab = 'events' }) {
       location: 'The Rose Garden',
       address: 'Central Floral Colonnade & Fountain Courtyard',
       image: weddingCeremonyImg,
-      alt: 'Wedding ceremony floral archway with chateau view',
+      alt: 'Wedding ceremony floral archway with palace view',
       isTinted: true, // Distinct soft blush peach-rose background band as in reference
     },
     {
@@ -57,7 +57,7 @@ export default function EventsPage({ onNavigate, activeTab = 'events' }) {
       title: 'Reception',
       time: 'Saturday · 7:00 PM',
       location: 'The Rose Garden',
-      address: 'The Orangerie Ballroom & Lantern Lawn',
+      address: 'The Orangery Ballroom & Lantern Lawn',
       image: receptionImg,
       alt: 'Reception dinner table under lantern-lit boughs',
       isTinted: false,

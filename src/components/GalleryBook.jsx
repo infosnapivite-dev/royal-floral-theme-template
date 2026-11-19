@@ -16,7 +16,7 @@ const pages = [
   { id: 3, num: '03', caption: 'Strolling hand in hand' },
   { id: 4, num: '04', caption: 'A love in full bloom' },
   { id: 5, num: '05', caption: 'Laughter in the rose garden' },
-  { id: 6, num: '06', caption: 'Château garden romance' },
+  { id: 6, num: '06', caption: 'Palace garden romance' },
   { id: 7, num: '07', caption: 'Two hearts, one journey' },
   { id: 8, num: '08', caption: 'Cherished for all eternity' },
 ];
