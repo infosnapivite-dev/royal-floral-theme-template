@@ -17,11 +17,9 @@ const gpuLayerStyle = {
 
 export default function ThankYouSection() {
   const sectionRef = useRef(null);
-  const crestRef = useRef(null);
   const eyebrowRef = useRef(null);
   const titleRef = useRef(null);
   const messageRef = useRef(null);
-  const dateBadgeRef = useRef(null);
   const floralLeftRef = useRef(null);
   const floralRightRef = useRef(null);
   const returnBtnRef = useRef(null);
@@ -40,28 +38,7 @@ export default function ThankYouSection() {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      // 1. Royal Crest Parallax: Scaling & delicate floating rotation
-      if (crestRef.current) {
-        gsap.fromTo(
-          crestRef.current,
-          { scale: 0.9, rotate: -15, y: 35 },
-          {
-            scale: 1.05,
-            rotate: 15,
-            y: -20,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              scroller: scroller,
-              start: 'top bottom',
-              end: 'center center',
-              scrub: 1.2,
-            },
-          }
-        );
-      }
-
-      // 2. Eyebrow & Title Vertical Drift
+      // 1. Eyebrow & Title Vertical Drift
       if (eyebrowRef.current) {
         gsap.fromTo(
           eyebrowRef.current,
@@ -100,37 +77,16 @@ export default function ThankYouSection() {
         );
       }
 
-      // 3. Heartfelt Message Fade & Parallax Elevate
+      // 2. Heartfelt Message Fade In
       if (messageRef.current) {
         gsap.fromTo(
           messageRef.current,
-          { y: 30, opacity: 0.5 },
+          { opacity: 0.4 },
           {
-            y: -15,
             opacity: 1,
             ease: 'none',
             scrollTrigger: {
               trigger: messageRef.current,
-              scroller: scroller,
-              start: 'top bottom',
-              end: 'bottom bottom',
-              scrub: 1.1,
-            },
-          }
-        );
-      }
-
-      // 4. Date & Place Badge Reveal
-      if (dateBadgeRef.current) {
-        gsap.fromTo(
-          dateBadgeRef.current,
-          { y: 20, opacity: 0.6 },
-          {
-            y: -10,
-            opacity: 1,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: dateBadgeRef.current,
               scroller: scroller,
               start: 'top bottom',
               end: 'bottom bottom',
@@ -239,12 +195,10 @@ export default function ThankYouSection() {
       </div>
 
       {/* ===================================================================
-          1. GILDED ROYAL MONOGRAM CREST
+          1. GILDED ROYAL MONOGRAM CREST (Static, Grounded)
          =================================================================== */}
       <div
-        ref={crestRef}
-        className="relative w-16 h-16 rounded-full border border-[#c5a059]/60 flex items-center justify-center bg-white/40 backdrop-blur-xs shadow-sm mb-6 will-animate"
-        style={gpuLayerStyle}
+        className="relative w-16 h-16 rounded-full border border-[#c5a059]/60 flex items-center justify-center bg-white/40 backdrop-blur-xs shadow-sm mb-6 select-none"
       >
         {/* Subtle decorative inner ring */}
         <div className="absolute inset-1 rounded-full border border-[#c5a059]/30 border-dashed" />
@@ -299,11 +253,9 @@ export default function ThankYouSection() {
         Kabir &amp; Tara
       </p>
 
-      {/* Ceremony Date & Location */}
+      {/* Ceremony Date & Location (Static) */}
       <div
-        ref={dateBadgeRef}
-        className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.32em] font-royal text-[#8a7d76] will-animate mb-10"
-        style={gpuLayerStyle}
+        className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.32em] font-royal text-[#8a7d76] mb-10 select-none"
       >
         <span>20 March 2027</span>
         <span className="text-[#c5a059] font-bold">·</span>
